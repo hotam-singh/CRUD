@@ -40,6 +40,7 @@ utils.createDir(__dirname + '/logs');
 
 // intantiate an express app
 var app = express();
+require('dotenv').config();
 
 // initialize passport
 require('./passport/passport')(passport);

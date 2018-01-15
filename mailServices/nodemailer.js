@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var env = process.env;
 
 var transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -6,8 +7,8 @@ var transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         type: 'OAuth2',
-        clientId: '954642061655-6bfeecg6dfcjtilvdfgef32sig0kjq0q.apps.googleusercontent.com',
-        clientSecret: 'rPpqKKEt9fqAlOsMMkn5pTqv'
+        clientId: env.CLIENT_ID,
+        clientSecret: env.CLIENT_SECRET
     }
 });
 
