@@ -74,15 +74,15 @@ function Router(app, passport, client) {
                         var host=req.get('host');
                         var link="http://"+req.get('host')+"/verify?id="+rand;
                         var mailOptions = {
-                            from: 'singh.hotamsingh.hotam71@gmail.com', // sender address
-                            to: 'hotam.hbti123@gmail.com', // list of receivers
+                            from: process.env.SENDER, // sender address
+                            to: process.env.MAILTO, // list of receivers
                             subject: 'Email Verification Link', // Subject line
                             text: '', // plain text body
                             html: "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>", // https://drive.google.com/open?id=1NXO7RZFijpRBNTGLHWJ_ITlweT7gHRdphtml body
                             auth: {
-                                user: 'singh.hotamsingh.hotam71@gmail.com',
-                                refreshToken: '1/epM34W62ze2p0jfnVZ6k0PbakoOnVH08Vr-dHI2juyY',
-                                accessToken: 'ya29.GlsYBZ3wbupJJX_u9w9KKwKj7_zu_7IlYl_k_A_k8gW-XWg6Gb2FPB9oX_7Yc9xMimBVV8ClNDLh1gIhqOGRNmszolrX6dL5EWEsUBrm4kMHNaT1xlQUdNMDR7Tt'
+                                user: process.env.SENDER,
+                                refreshToken: process.env.REFRESHTOKEN,
+                                accessToken: process.env.ACCESSTOKEN
                             }
                         };
                         mailServices.sendMail(mailOptions, function(err) {
